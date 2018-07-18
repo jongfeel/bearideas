@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+
+<link rel="stylesheet" href="">
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,700');
+
+body {background-color: #A1CE5E;font-family: 'Dosis', sans-serif;font-size: 1.5em;}
+.section {align-items: center;display: flex;flex-wrap: wrap;height: 100vh;justify-content: space-around;margin-left: 15%;margin-right: 15%;}
+.buttons {text-align: center;width: 100%;}
+.box {background-color: #D0D6B3;height: 200px;margin-top: 1em;width: 30%;}
+</style>
+	
+</head>
+<body>
+
+<!-- Script -->
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/ScrollMagic.js"></script>
+<script src="js/animation.gsap.js"></script>
+<script src="js/debug.addIndicators.js"></script>
+<!-- //Script -->
+
+<!-- -->
+<div class="section" id="section-start">
+  <h1>Start</h1>
+</div>
+
+<div class="section" id="section-1">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</div>
+
+<div class="section id="section-end"">
+  <h1>END</h1>
+</div>
+<!-- -->
+
+<script>
+$(function() {
+
+var boxes         = $('.box'),
+    sectionStart  = $('#section-start'),
+    section1      = $('#section-1'),
+    sectionEnd    = $('#section-end');
+
+var tl = new TimelineLite({paused: true});  //instantiate a TimelineLite
+
+var controller = new ScrollMagic.Controller();  //
+
+tl.staggerFrom( boxes, 0.5, {
+        y: '+=50', 
+        autoAlpha: 0, 
+        ease: Power3.easeOut
+        }, 0.25 
+);
+
+var scene = new ScrollMagic
+    .Scene({ triggerElement: '#section-1' })
+    .on("enter", function (event) { tl.play().timeScale(1); })
+    .on("leave", function (event) { tl.reverse().timeScale(1.5); })
+    //speed up or slow down the entire timeline using timeScale
+    .addTo(controller);
+});
+    
+</script>	
+</body>
+
+</html>
+
+
+<!--
+https://codepen.io/giodum/pen/VMzdyy?page=5
+
+https://greensock.com/timelinelite
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

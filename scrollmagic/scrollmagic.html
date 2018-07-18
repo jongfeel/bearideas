@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<!-- Styles -->
+<link rel="stylesheet" href="">
+
+<style>
+#body {height:4000px;}
+.demo {height: 500px;overflow: hidden;position: relative;bottom: -100px;}
+.logo {position: absolute;left: 50%;margin-left: -100px;width:200px;height:200px;}
+</style>
+</head>
+<body>
+<!-- Script -->
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/ScrollMagic.js"></script>
+<script src="js/animation.gsap.js"></script>
+<script src="js/debug.addIndicators.js"></script>
+<!-- //Script -->
+
+
+<div class="demo">
+	<img class="logo" />
+</div>
+
+<script>
+$(function() {
+
+var controller = new ScrollMagic.Controller();
+var tween = TweenMax.to(".logo", 1, {rotation: 360, ease: Linear.easeNone});
+
+var scene = new ScrollMagic.Scene({offset:50 ,duration: 300})
+    						.setTween(tween)
+    						.setPin(".logo", {pushFollowers: true})
+							.addIndicators(true)
+    						.addTo(controller);
+
+});
+</script>	
+</body>
+
+</html>
+
