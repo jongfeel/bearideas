@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>제이쿼리(jQuery)</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+		<style>
+			* {margin:0; padding:0;}
+			#nav {overflow:hidden; position:fixed; left:0; top:0; width: 100%; background-color: rgba(255,255,255,0.6);}
+			#nav h1 {float:left; color: #fff; font-size:40px; padding:12px 5px 5px 20px; font-weight:900;   }
+			#nav ul {float:right;}
+			#nav ul li {display: inline;}
+			#nav ul li a {padding: 23px 10px 20px 10px; text-decoration: none; color: #fff; display:inline-block;}
+			#nav ul li.active a {border-bottom: 3px solid #ff4343; color:#ff4343;}
+
+			#contents {text-align: center; font-size: 50px; color:#fff; font-family: 'Roboto', sans-serif; font-weight:100;}
+			#contents > div {height: 100vh; line-height: 100vh;}
+			#section1 {background-color: #42a5f5;}
+			#section2 {background-color: #4db6ac;}
+			#section3 {background-color: #4dd0e1;}
+			#section4 {background-color: #4fc3f7;}
+			#section5 {background-color: #c0ca33;}
+			#section6 {background-color: #7cb342;}
+
+			.info {position: fixed; left: 10px; bottom: 30px;}
+			.info span {position:relative; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 50%; color:#fff; width:50px; height:50px; float:left; margin:3px; text-align:center; line-height: 50px;  }
+			.info .offset_top:before {content:'offset'; position:absolute; left: 50%; top: -40px; transform: translatex(-50%); }
+			.info .scroll_top:before {content:'scroll'; position:absolute; left: 50%; top: -40px; transform: translatex(-50%); }
+
+		</style>
+	</head>
+<body>
+
+	<div class="info">
+		<span class="offset_top"></span>
+		<span class="scroll_top"></span>
+	</div>
+
+	<nav id="nav">
+		<h1>WEB'S</h1>
+		<ul>
+			<li class="active"><a href="#section1">Menu1</a></li>
+			<li><a href="#section2">Menu2</a></li>
+			<li><a href="#section3">Menu3</a></li>
+			<li><a href="#section4">Menu4</a></li>
+			<li><a href="#section5">Menu5</a></li>
+			<li><a href="#section6">Menu6</a></li>
+		</ul>
+	</nav>
+
+	<div id="contents">
+		<div id="section1">We love What You do.</div>
+		<div id="section2">Make hay while the sun shines</div>
+		<div id="section3">All in my dream</div>
+		<div id="section4">Be Strict With Myself</div>
+		<div id="section5">Can't Stop to Dream</div>
+		<div id="section6">No Pains No Gain</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script>
+		var nav = $("#nav ul li");
+		var contents = $("#contents > div");
+
+		nav.click(function(e){
+			e.preventDefault();
+			var target = $(this);   
+			var index = target.index();     
+			//alert(index);
+			var section = contents.eq(index); 
+			var offset = section.offset().top; 
+			//alert(offset);
+			$(".offset_top").text(offset); 
+			$("html, body").animate({ scrollTop:offset},400);
+		});
+
+		$(window).scroll(function(){
+			var wScroll = $(this).scrollTop();
+			$(".scroll_top").text(wScroll);
+
+			if(wScroll >= contents.eq(0).offset().top){
+				nav.removeClass("active");
+				nav.eq(0).addClass("active");
+			}
+			if(wScroll >= contents.eq(1).offset().top){
+				nav.removeClass("active");
+				nav.eq(1).addClass("active");
+			}
+			if(wScroll >= contents.eq(2).offset().top){
+				nav.removeClass("active");
+				nav.eq(2).addClass("active");
+			}
+			if(wScroll >= contents.eq(3).offset().top){
+				nav.removeClass("active");
+				nav.eq(3).addClass("active");
+			}
+			if(wScroll >= contents.eq(4).offset().top){
+				nav.removeClass("active");
+				nav.eq(4).addClass("active");
+			}
+			if(wScroll >= contents.eq(5).offset().top -3){
+				nav.removeClass("active");
+				nav.eq(5).addClass("active");
+			}
+		});
+	</script> 
+</body>
+</html>             
+
+
+<!--
+    << Question >> 
+
+
+-->
+
+
+<!--
+    << Reference >>
+
+    - property - 
+	.eq() : .eq() 메서드는 선택한 요소의 인덱스 번호를 갖는 요소를 반환합니다.
+	.offset() : .offset() 메서드는 선택한 요소의 좌표 값(문서 기준)을 설정하거나 반환합니다.
+	.animate()
+	.scrollTop() : .scrollTop() 메서드는 선택한 요소의 가로 스크롤 값을 설정하거나 반환합니다.??????????????
+	.index() : .index() 메서드는 이벤트가 발생한 요소의 인덱스 값을 반환합니다
+	.addClass() : .addClass() 메서드는 하나 이상의 클래스를 추가합니다.
+	.removeClass() : .removeClass() 메서드는 하나 이상의 클래스를 제거합니다.
+
+-->

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+   
+
+<script>
+var nav = $("#nav ul li");                               
+var contents = $("#contents > div");           
+
+nav.click(function(){
+	var target = $(this);					
+	var index = target.index();		      
+	
+	var section = contents.eq(index);		
+	var offset = section.offset().top;	        
+	
+	$("html, body").animate({ scrollTop:offset},400);      
+});
+</script>
+
+<p>
+    http://coderap.tistory.com/507
+</p>
+
+<div>
+   <p>1. target.index();</p>
+   <div>어떠한 변수에 인덱스를 부여 했을 때, 원리? 인덱스가 부여되는 방법?</div>
+
+   <p>2. var section = contents.eq(index);</p>
+   <div>위의 인덱스 값 부여해준 것과는 상관 없는건가? 왜 eq(index) eq를 굳이 써서 해주었는가?</div>
+
+</div>
+
+
+<div>
+
+<h4>property</h4>
+
+.eq() : .eq() 메서드는 선택한 요소의 인덱스 번호를 갖는 요소를 반환합니다.
+.offset() : .offset() 메서드는 선택한 요소의 좌표 값(문서 기준)을 설정하거나 반환합니다.
+.animate()
+.scrollTop() : .scrollTop() 메서드는 선택한 요소의 가로 스크롤 값을 설정하거나 반환합니다.
+.index() : .index() 메서드는 이벤트가 발생한 요소의 인덱스 값을 반환합니다
+
+
+</div>
+
+</body>
+</html>
+
+
