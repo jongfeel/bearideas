@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Pragma" content="no-cache"/>
+	<meta http-equiv="Cache-Control" content="No-Cache"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+
+	<title>bearideas</title>
+	
+	<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/main.css">
+	
+
+	<!-- mCustomScrollbar -->
+	<script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<link href="../css/jquery.mCustomScrollbar.min.css" rel="stylesheet" type="text/css" /> 
+
+
+<style>
+body,html { width:100%; height:100%; height:100vh; position: relative;overflow-x:hidden; overflow-y:scroll;
+font-size:16px;font-size: 1rem; font-family: DINPro,"Helvetica Neue",Helvetica,Arial,sans-serif; font-weight: 400;}
+
+.preload_page1{ width:100%; height:100%; height:100vh; position: relative; top:0; left:0; right:0; overflow-x:hidden; background-color: #ffd94a;	}
+.bearideas_wrap {}
+.bearideas_wrap.white_bear{  width:100%; height:100%; height:100vh; position: relative; background-color: #fff; border:20px solid #000; box-sizing:border-box;}
+
+/* video */
+.video_cont { position:absolute;height:100%;width:100%;overflow: hidden; }
+.video_cont video { min-width: 100%; min-height: 100%; }
+/* nav */
+.nav_cont { text-align: center;}
+</style>
+</head>
+<body>
+	<!-- preload page -->
+	<div class="preload_page1"></div>
+	<div class="mCustomScrollbar">
+			<div class="bearideas_wrap white_bear">
+				<!-- video -->
+				<div class="video_cont">
+					<video loop="">
+                        <source src="http://bearideas.fr/wp-content/themes/bear/assets/videos/polar.mp4?v4" type="video/mp4">
+                    </video>
+				</div>
+
+				<!-- nav -->
+				<div class="nav_cont">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+
+			</div>
+	</div>
+
+
+	<script>
+
+	(function($){
+
+		$(window).load(function(){
+			$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+			$.mCustomScrollbar.defaults.axis="y"; //enable 2 axis scrollbars by default
+			$('.mCustomScrollbar').mCustomScrollbar({ theme:"dark-2" });
+		});
+
+
+/*
+		var $video  = $('video'),
+		$window = $(window); 
+
+		$(window).resize(function(){
+			var height = $window.height()-40 ;
+			$video.css('height', height);
+
+			var videoWidth = $video.width(),
+			windowWidth = $window.width(),
+			marginLeftAdjust =   (windowWidth - videoWidth) / 2;
+
+			$video.css({
+				'height': height, 
+				'marginLeft' : marginLeftAdjust
+			});
+		}).resize();
+*/
+
+
+	})(jQuery);
+		
+
+
+	</script>
+
+
+</body>
+</html>
+
+
+<!--
+/* ////////////////////////////
+ 메인페이지에서 작업할 것들 
+ ////////////////////////////*/
+
+
+- SVG 방법
+
+- 프리로딩 페이지 
+beardots 같은 건 어떻게 하는걸까...?
+
+-bezier-curve 
+https://blog.coderifleman.com/2017/01/02/bezier-curves-for-frontend-engineer-1/
+https://apes0113.postype.com/post/2620   ***이해되기 쉽게 설명되있는 글!!
+
+- SVG
+
+
+- 전체화면 동영상 재생 
+http://bearideas.fr/wp-content/themes/bear/assets/videos/polar.mp4?v4
+http://bearideas.fr/wp-content/themes/bear/assets/videos/black.mp4?v4
+
+- 스크롤바 디자인 변경   
+
+- 스크롤매직 플러그인
+
+
+
+-->
